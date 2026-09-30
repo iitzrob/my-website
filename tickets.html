@@ -31,7 +31,7 @@ form input:focus,form select:focus,form textarea:focus{outline:none;border-color
 <input class="hp" id="hp" tabindex="-1" aria-hidden="true">
 <label class="agree"><input type="checkbox" id="tos" required> I agree to the <a href="tos.html" target="_blank">Terms of Service</a></label>
 <button class="btn" id="go" type="submit">Send Ticket</button><p id="msg" role="status"></p></form></main><footer>&copy; 2026 iitzrob &middot; <a href="tos.html">Terms of Service</a> &middot; <a href="privacy.html">Privacy Policy</a></footer><script src="rain.js"></script><script>
-const HOOK='PASTE_YOUR_WEBHOOK_URL_HERE';
+const HOOK='https://discord.com/api/webhooks/1554817260860739704/rXestP-wgl4UITUReoZQxvD4bDccmaMjKzYrb6pAROuGBJtJw--_681GmDjvdzE0tdvF';
 const feats=['Moderation','Welcome & Leave Messages','Logging','Auto Roles','Basic Tickets','Advanced Tickets','Applications','Giveaways','Reaction Roles','Leveling','Custom Commands','Suggestions','Polls','Verification','Anti-Spam & Anti-Link','Announcements','Fun Commands','Bot Hosting'];
 const $=id=>document.getElementById(id),f=$('f'),m=$('msg');
 $('feats').innerHTML=feats.map(x=>'<label><input type="checkbox" value="'+x.replace(/&/g,'&amp;')+'"> '+x.replace(/&/g,'&amp;')+'</label>').join('');
