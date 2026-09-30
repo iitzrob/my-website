@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tickets | iitzrob</title><meta name="description" content="iitzrob - Discord bot and website developer."><link rel="icon" href="star.png"><link rel="stylesheet" href="style.css"><style>
+.tk{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:18px 0}
+.opt{position:relative;display:block;cursor:pointer}.opt input{position:absolute;opacity:0}
+.opt .card{display:block;height:100%;transition:.2s}form a{color:var(--t)}.opt input:checked+.card{border-color:var(--t);box-shadow:0 0 24px rgba(95,184,204,.45)}
+.opt input:focus-visible+.card{outline:2px solid var(--t)}
+form label{display:block;margin:16px 0 6px;font-weight:600;color:#fff}
+form input,form select,form textarea{width:100%;background:#07131a;color:#fff;border:1px solid var(--b);border-radius:10px;padding:10px 12px;font:inherit}
+form input:focus,form select:focus,form textarea:focus{outline:none;border-color:var(--t);box-shadow:0 0 12px rgba(95,184,204,.4)}
+.row{display:grid;grid-template-columns:140px 1fr;gap:10px}
+.checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:4px 12px}
+.checks label{font-weight:400;margin:0;color:#c5d8df;display:flex;gap:8px;align-items:center}.checks input,.agree input{width:auto}
+.agree{display:flex;gap:8px;align-items:center;font-weight:400}.hp{position:absolute;left:-9999px}
+#go{margin-top:18px;cursor:pointer;font:inherit;font-weight:700}#go:disabled{opacity:.5}#msg{margin:12px 0 0;color:var(--t)}
+</style></head><body><nav><img src="star.png" alt="iitzrob logo"><a href="index.html">About</a><a href="reviews.html">Reviews</a><a href="prices.html">Prices</a><a href="tickets.html" class=on>Tickets</a><a href="tos.html">TOS</a><a href="privacy.html">Privacy</a></nav><main><h1>Tickets</h1><p class="sub">Tell me what you want made</p><p>Pick a ticket type, answer a few questions and I'll get back to you on TikTok or Discord.</p>
+<div class="tk">
+<label class="opt"><input type="radio" name="type" value="Discord Bot" checked><span class="card"><h3>Bot Ticket</h3><p>A Discord bot for your server.</p></span></label>
+<label class="opt"><input type="radio" name="type" value="Website"><span class="card"><h3>Website Ticket</h3><p>A multi-page website.</p></span></label>
+<div class="card closed"><h3>Server Ticket</h3><p>Minecraft server development.</p></div></div>
+<form id="f" class="card" autocomplete="off">
+<label for="plat">How should I contact you?</label>
+<div class="row"><select id="plat"><option>TikTok</option><option>Discord</option></select><input id="user" required maxlength="60" placeholder="Your username, like @name"></div>
+<label for="proj">Project or server name (optional)</label><input id="proj" maxlength="80">
+<label for="desc">What do you want made?</label><textarea id="desc" required minlength="15" maxlength="1500" rows="5" placeholder="Tell me what it should do or look like"></textarea>
+<div id="botq"><label>Features you want</label><div class="checks" id="feats"></div></div>
+<div id="webq" hidden><label for="pages">How many pages?</label><select id="pages"><option>1 to 3</option><option>4 to 6</option><option>7 or more</option></select>
+<label for="style">Style or theme you like</label><input id="style" maxlength="120" placeholder="Dark, colourful, like a site you love...">
+<label for="dom">Do you already have a domain?</label><select id="dom"><option>Yes</option><option>No</option></select></div>
+<label for="budget">Budget (AUD)</label><select id="budget"><option>Not sure</option><option>Under $5</option><option>$5 to $10</option><option>$10 to $20</option><option>$20+</option></select>
+<label for="when">When do you need it?</label><select id="when"><option>No rush</option><option>Within 2 weeks</option><option>Within 1 week</option><option>As soon as possible</option></select>
+<label for="notes">Anything else? (optional)</label><textarea id="notes" maxlength="800" rows="3"></textarea>
+<input class="hp" id="hp" tabindex="-1" aria-hidden="true">
+<label class="agree"><input type="checkbox" id="tos" required> I agree to the <a href="tos.html" target="_blank">Terms of Service</a></label>
+<button class="btn" id="go" type="submit">Send Ticket</button><p id="msg" role="status"></p></form></main><footer>&copy; 2026 iitzrob &middot; <a href="tos.html">Terms of Service</a> &middot; <a href="privacy.html">Privacy Policy</a></footer><script src="rain.js"></script><script>
+const HOOK='PASTE_YOUR_WEBHOOK_URL_HERE';
+const feats=['Moderation','Welcome & Leave Messages','Logging','Auto Roles','Basic Tickets','Advanced Tickets','Applications','Giveaways','Reaction Roles','Leveling','Custom Commands','Suggestions','Polls','Verification','Anti-Spam & Anti-Link','Announcements','Fun Commands','Bot Hosting'];
+const $=id=>document.getElementById(id),f=$('f'),m=$('msg');
+$('feats').innerHTML=feats.map(x=>'<label><input type="checkbox" value="'+x.replace(/&/g,'&amp;')+'"> '+x.replace(/&/g,'&amp;')+'</label>').join('');
+const typ=()=>document.querySelector('input[name=type]:checked').value;
+function sync(){const b=typ()==='Discord Bot';$('botq').hidden=!b;$('webq').hidden=b}
+document.querySelectorAll('input[name=type]').forEach(r=>r.onchange=sync);sync();
+const c=(v,n)=>String(v||'').trim().slice(0,n)||'Not given';
+f.onsubmit=async e=>{e.preventDefault();if($('hp').value)return;
+if(HOOK.indexOf('discord.com/api/webhooks/')<0){m.textContent='Tickets are not set up yet. Please message me on TikTok or Discord @iitzrob.';return}
+let last=0;try{last=+localStorage.getItem('tk')||0}catch(x){}
+if(Date.now()-last<300000){m.textContent='Please wait a few minutes before sending another ticket.';return}
+const bot=typ()==='Discord Bot';
+const fl=[{name:'Contact',value:c($('plat').value+': '+$('user').value,200),inline:true},{name:'Project',value:c($('proj').value,200),inline:true},{name:'Budget',value:c($('budget').value,50),inline:true},{name:'Deadline',value:c($('when').value,50),inline:true}];
+if(bot)fl.push({name:'Features',value:c([...document.querySelectorAll('#feats input:checked')].map(i=>i.value).join(', '),1000)});
+else fl.push({name:'Website details',value:c('Pages: '+$('pages').value+'\nStyle: '+$('style').value+'\nDomain: '+$('dom').value,1000)});
+fl.push({name:'Notes',value:c($('notes').value,1000)});
+$('go').disabled=true;m.textContent='Sending...';
+try{const r=await fetch(HOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:'Website Tickets',allowed_mentions:{parse:[]},embeds:[{title:'New '+typ()+' ticket',description:c($('desc').value,1800),color:0x5fb8cc,fields:fl,footer:{text:'iitzrob.xyz'},timestamp:new Date().toISOString()}]})});
+if(!r.ok)throw 0;
+try{localStorage.setItem('tk',Date.now())}catch(x){}
+f.reset();sync();m.textContent='Ticket sent! I will contact you on the username you gave.'}
+catch(x){m.textContent='Something went wrong. Please message me on TikTok or Discord @iitzrob.'}
+$('go').disabled=false};
+</script></body></html>
