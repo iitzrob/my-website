@@ -66,10 +66,20 @@ else if(h.get('error')||q.get('error')){msg='Login was cancelled.';history.repla
 ss.d('st');const t=ss.g('dt');
 if(t&&+ss.g('de')>Date.now()){try{U=await getUser(t);$('plat').value='Discord';if(!$('user').value)$('user').value='@'+U.un;$('go').textContent='Send Ticket as '+U.name}catch(x){ss.d('dt');ss.d('de');U=null;msg='Login expired. Please log in again.'}}
 draw(msg)})();
+function rl(){try{return JSON.parse(localStorage.getItem('tkS'))||{}}catch(x){return{}}}
+function sv(s){try{localStorage.setItem('tkS',JSON.stringify(s))}catch(x){}}
+function fmt(ms){const m=Math.ceil(ms/60000);if(m>=1440)return Math.ceil(m/1440)+' day(s)';if(m>=60)return Math.ceil(m/60)+' hour(s)';return m+' minute(s)'}
+function gate(){const s=rl(),now=Date.now();
+if(s.strikes&&now>(s.lk||0)+6048e5)s.strikes=0;
+if(now<(s.lk||0))return'You are locked out for spamming. Try again in '+fmt(s.lk-now)+'.';
+const cd=(s.last||0)+3e5;
+if(now<cd){s.n=(s.n||0)+1;
+if(s.n>=5){s.n=0;s.strikes=(s.strikes||0)+1;s.lk=now+(s.strikes===1?72e5:2592e5);sv(s);return'Too many attempts. You are locked out for '+(s.strikes===1?'2 hours':'3 days')+'.'}
+sv(s);return'Please wait '+fmt(cd-now)+' before sending another ticket. Attempt '+s.n+' of 5 before a lockout.'}
+return''}
 f.onsubmit=async e=>{e.preventDefault();if($('hp').value)return;
 if(HOOK.indexOf('discord.com/api/webhooks/')<0){m.textContent='Tickets are not set up yet. Please message me on TikTok or Discord @iitzrob.';return}
-let last=0;try{last=+localStorage.getItem('tk')||0}catch(x){}
-if(Date.now()-last<300000){m.textContent='Please wait a few minutes before sending another ticket.';return}
+const g=gate();if(g){m.textContent=g;return}
 const bot=typ()==='Discord Bot';
 const fl=[{name:'Contact',value:c($('plat').value+': '+$('user').value,200),inline:true},{name:'Project',value:c($('proj').value,200),inline:true},{name:'Budget',value:c($('budget').value,50),inline:true},{name:'Deadline',value:c($('when').value,50),inline:true}];
 if(bot)fl.push({name:'Features',value:c([...document.querySelectorAll('#feats input:checked')].map(i=>i.value).join(', '),1000)});
@@ -80,7 +90,7 @@ if(U){emb.author={name:U.name+' (@'+U.un+')',icon_url:U.av};emb.thumbnail={url:U
 $('go').disabled=true;m.textContent='Sending...';
 try{const r=await fetch(HOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:'Website Tickets',allowed_mentions:{parse:[]},embeds:[emb]})});
 if(!r.ok)throw 0;
-try{localStorage.setItem('tk',Date.now())}catch(x){}
+{const s=rl();s.last=Date.now();s.n=0;sv(s)}
 f.reset();sync();if(U){$('plat').value='Discord';$('user').value='@'+U.un}m.textContent='Ticket sent! I will contact you on the username you gave.'}
 catch(x){m.textContent='Something went wrong. Please message me on TikTok or Discord @iitzrob.'}
 $('go').disabled=false};
