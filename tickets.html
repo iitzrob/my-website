@@ -44,7 +44,7 @@ const typ=()=>document.querySelector('input[name=type]:checked').value;
 function sync(){const b=typ()==='Discord Bot';$('botq').hidden=!b;$('webq').hidden=b}
 document.querySelectorAll('input[name=type]').forEach(r=>r.onchange=sync);sync();
 const c=(v,n)=>String(v||'').trim().slice(0,n)||'Not given';
-const CLIENT_ID='PASTE_YOUR_CLIENT_ID_HERE',REDIR='https://iitzrob.xyz/tickets.html';
+const CLIENT_ID='1554821788301795469',REDIR='https://iitzrob.xyz/tickets.html';
 let U=null;
 const ss={g:k=>{try{return sessionStorage.getItem(k)}catch(x){return null}},s:(k,v)=>{try{sessionStorage.setItem(k,v)}catch(x){}},d:k=>{try{sessionStorage.removeItem(k)}catch(x){}}};
 function draw(msg){const a=$('acct');
