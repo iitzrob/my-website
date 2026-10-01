@@ -15,33 +15,85 @@ form input:focus,form select:focus,form textarea:focus{outline:none;border-color
 .dc{background:#5865F2;border-color:#8b95ff;cursor:pointer;font:inherit;font-weight:700}.dc:hover{background:#6d78ff}
 .me{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.me img{width:56px;height:56px;border-radius:50%;border:3px solid var(--t);box-shadow:0 0 18px rgba(95,184,204,.6)}
 .me div{flex:1;min-width:140px}.me b{color:#fff;font-size:1.1rem}.me span{color:var(--m)}.me .btn{margin:0;cursor:pointer;font:inherit}
+.tw{margin-top:6px;filter:drop-shadow(0 0 16px rgba(95,184,204,.4))}
+.ticket{--x:calc(100% - 310px);display:grid;grid-template-columns:1fr 310px;border-radius:18px;overflow:hidden;background:linear-gradient(160deg,#0d2230,#07131b 60%);-webkit-mask:radial-gradient(circle 14px at var(--x) 0,#0000 97%,#000),radial-gradient(circle 14px at var(--x) 100%,#0000 97%,#000);-webkit-mask-composite:source-in;mask:radial-gradient(circle 14px at var(--x) 0,#0000 97%,#000),radial-gradient(circle 14px at var(--x) 100%,#0000 97%,#000);mask-composite:intersect}
+.ticket form{padding:0 24px 24px}.th{display:flex;justify-content:space-between;align-items:center;margin:0 -24px 4px;padding:14px 24px;background:linear-gradient(90deg,#1c5568,#0d2a38);letter-spacing:.18em;font-size:.85rem;color:#fff}
+.th span{background:rgba(0,0,0,.35);border:1px solid var(--t);border-radius:20px;padding:2px 12px;letter-spacing:.1em;text-shadow:0 0 8px var(--t)}
+.stub{padding:22px 20px;border-left:2px dashed rgba(143,224,240,.4);background:rgba(3,10,14,.5);display:flex;flex-direction:column}
+.stub h3{letter-spacing:.18em;font-size:.85rem;color:var(--t);margin-bottom:10px}
+.ln{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px dotted rgba(143,224,240,.25);font-size:.92rem;color:#c5d8df}.ln b{color:#fff}
+.tl{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px;color:var(--m);letter-spacing:.1em}.tl b{font-size:1.5rem;color:#fff;text-shadow:0 0 14px var(--t);letter-spacing:0}
+.stub .note{font-size:.8rem;color:var(--m);margin:10px 0 0}.bc{height:46px;margin-top:auto;background:repeating-linear-gradient(90deg,#d9f6ff 0 2px,transparent 2px 5px,#d9f6ff 5px 6px,transparent 6px 8px,#d9f6ff 8px 11px,transparent 11px 13px);opacity:.85;border-radius:2px}
+#tid2{margin-top:6px;text-align:center;letter-spacing:.3em;font-size:.75rem;color:var(--m)}.stub .bc{margin-top:22px}
+.packs{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px}
+.pk{position:relative;margin:0!important;cursor:pointer}.pk input{position:absolute;opacity:0;width:auto}
+.pk span{display:block;padding:10px 6px;border:1px solid var(--b);border-radius:10px;text-align:center;background:#07131a}.pk b{display:block;color:#fff}.pk i{color:var(--t);font-style:normal}
+.pk input:checked+span{border-color:var(--t);background:rgba(95,184,204,.14);box-shadow:0 0 14px rgba(95,184,204,.5)}.pk input:focus-visible+span{outline:2px solid var(--t)}
+#pkinfo{font-size:.85rem;color:var(--m);margin:8px 0 0}.checks em{margin-left:auto;font-style:normal;color:var(--t)}
+.checks label.inc{opacity:.75}.checks label.inc em{font-size:0}.checks label.inc em::after{content:"Included";font-size:.8rem}
+@media(max-width:760px){.ticket{grid-template-columns:1fr;-webkit-mask:none;mask:none}.stub{border-left:0;border-top:2px dashed rgba(143,224,240,.4)}}
+.lbl{letter-spacing:.18em;font-size:.8rem;color:var(--t);margin:6px 0 -4px;text-transform:uppercase}
 </style></head><body><nav><img src="star.png" alt="iitzrob logo"><a href="index.html">About</a><a href="reviews.html">Reviews</a><a href="prices.html">Prices</a><a href="tickets.html" class=on>Tickets</a><a href="tos.html">TOS</a><a href="privacy.html">Privacy</a></nav><main><h1>Tickets</h1><p class="sub">Tell me what you want made</p><p>Pick a ticket type, answer a few questions and I'll get back to you on TikTok or Discord.</p>
+<div class="tk"><label class="opt"><input type="radio" name="type" value="Support"><span class="card"><h3>Support Ticket</h3><p>Need help with something I made? Report a problem, ask a question or request a change.</p></span></label></div>
+<p class="lbl">Purchase Tickets</p>
 <div class="tk">
 <label class="opt"><input type="radio" name="type" value="Discord Bot" checked><span class="card"><h3>Bot Ticket</h3><p>A Discord bot for your server.</p></span></label>
 <label class="opt"><input type="radio" name="type" value="Website"><span class="card"><h3>Website Ticket</h3><p>A multi-page website.</p></span></label>
 <div class="card closed"><h3>Server Ticket</h3><p>Minecraft server development.</p></div></div>
 <div class="card" id="acct"></div>
-<form id="f" class="card" autocomplete="off">
+<div class="tw"><div class="ticket"><form id="f" autocomplete="off"><div class="th"><b id="thl">PURCHASE TICKET</b><span id="tid">#----</span></div>
 <label for="plat">How should I contact you?</label>
 <div class="row"><select id="plat"><option>TikTok</option><option>Discord</option></select><input id="user" required maxlength="60" placeholder="Your username, like @name"></div>
+<div id="supq" hidden><label for="cat">Category</label><select id="cat"><option>Bot problem or bug</option><option>Website problem or bug</option><option>Bot offline or hosting</option><option>Payment or billing</option><option>Change or new feature</option><option>Question</option><option>Other</option></select>
+<label for="pri">How urgent is it?</label><select id="pri"><option>Low</option><option selected>Normal</option><option>Urgent</option></select></div>
 <label for="proj">Project or server name (optional)</label><input id="proj" maxlength="80">
 <label for="desc">What do you want made?</label><textarea id="desc" required minlength="15" maxlength="1500" rows="5" placeholder="Tell me what it should do or look like"></textarea>
-<div id="botq"><label>Features you want</label><div class="checks" id="feats"></div></div>
+<div id="supb" hidden><label for="rel">Related ticket number (optional)</label><input id="rel" maxlength="20" placeholder="#A1B2">
+<label for="lnk">Link to a screenshot or video (optional)</label><input id="lnk" maxlength="300" placeholder="https://..."></div>
+<div id="botq"><label>Choose a pack or build your own</label><div class="packs">
+<label class="pk"><input type="radio" name="pack" value="None" checked><span><b>Build your own</b><i>Pick below</i></span></label>
+<label class="pk"><input type="radio" name="pack" value="Basic"><span><b>Basic</b><i>$5</i></span></label>
+<label class="pk"><input type="radio" name="pack" value="Standard"><span><b>Standard</b><i>$8</i></span></label>
+<label class="pk"><input type="radio" name="pack" value="Premium"><span><b>Premium</b><i>$12</i></span></label></div><p id="pkinfo"></p>
+<label>Add-ons and features</label><div class="checks" id="feats"></div>
+<label for="host">How long do you want bot hosting? ($7 AUD / month)</label><select id="host"></select></div>
 <div id="webq" hidden><label for="pages">How many pages?</label><select id="pages"><option>1 to 3</option><option>4 to 6</option><option>7 or more</option></select>
 <label for="style">Style or theme you like</label><input id="style" maxlength="120" placeholder="Dark, colourful, like a site you love...">
 <label for="dom">Do you already have a domain?</label><select id="dom"><option>Yes</option><option>No</option></select></div>
-<label for="budget">Budget (AUD)</label><select id="budget"><option>Not sure</option><option>Under $5</option><option>$5 to $10</option><option>$10 to $20</option><option>$20+</option></select>
+<div id="buy"><label for="budget">Budget (AUD)</label><select id="budget"><option>Not sure</option><option>Under $5</option><option>$5 to $10</option><option>$10 to $20</option><option>$20+</option></select>
 <label for="when">When do you need it?</label><select id="when"><option>No rush</option><option>Within 2 weeks</option><option>Within 1 week</option><option>As soon as possible</option></select>
-<label for="notes">Anything else? (optional)</label><textarea id="notes" maxlength="800" rows="3"></textarea>
+</div><label for="notes">Anything else? (optional)</label><textarea id="notes" maxlength="800" rows="3"></textarea>
 <input class="hp" id="hp" tabindex="-1" aria-hidden="true">
 <label class="agree"><input type="checkbox" id="tos" required> I agree to the <a href="tos.html" target="_blank">Terms of Service</a></label>
-<button class="btn" id="go" type="submit">Send Ticket</button><p id="msg" role="status"></p></form></main><footer>&copy; 2026 iitzrob &middot; <a href="tos.html">Terms of Service</a> &middot; <a href="privacy.html">Privacy Policy</a></footer><script src="rain.js"></script><script>
+<button class="btn" id="go" type="submit">Send Ticket</button><p id="msg" role="status"></p></form><aside class="stub"><h3 id="sth">YOUR ESTIMATE</h3><div id="rc"></div><div class="tl"><span id="stl">TOTAL</span><b id="tot">$0.00 AUD</b></div><p class="note" id="snote"></p><div class="bc"></div><div id="tid2"></div></aside></div></div></main><footer>&copy; 2026 iitzrob &middot; <a href="tos.html">Terms of Service</a> &middot; <a href="privacy.html">Privacy Policy</a></footer><script src="rain.js"></script><script>
 const HOOK='https://discord.com/api/webhooks/1554817260860739704/rXestP-wgl4UITUReoZQxvD4bDccmaMjKzYrb6pAROuGBJtJw--_681GmDjvdzE0tdvF';
-const feats=['Moderation','Welcome & Leave Messages','Logging','Auto Roles','Basic Tickets','Advanced Tickets','Applications','Giveaways','Reaction Roles','Leveling','Custom Commands','Suggestions','Polls','Verification','Anti-Spam & Anti-Link','Announcements','Fun Commands','Bot Hosting'];
+const feats=['Moderation','Welcome & Leave Messages','Logging','Auto Roles','Basic Tickets','Advanced Tickets','Applications','Giveaways','Reaction Roles','Leveling','Custom Commands','Suggestions','Polls','Verification','Anti-Spam & Anti-Link','Announcements','Fun Commands'];
+const PK={None:{p:0,inc:[]},Basic:{p:5,inc:['Basic Tickets','Welcome & Leave Messages','Applications']}};
+PK.Standard={p:8,inc:PK.Basic.inc.concat(['Moderation','Logging','Auto Roles'])};PK.Premium={p:12,inc:PK.Standard.inc.concat(['Advanced Tickets'])};
+const HOST=7,pr=n=>n==='Advanced Tickets'?2.5:1,mny=n=>'$'+n.toFixed(2);let Q={},TID='';
 const $=id=>document.getElementById(id),f=$('f'),m=$('msg');
-$('feats').innerHTML=feats.map(x=>'<label><input type="checkbox" value="'+x.replace(/&/g,'&amp;')+'"> '+x.replace(/&/g,'&amp;')+'</label>').join('');
+$('feats').innerHTML=feats.map(x=>{const e=x.replace(/&/g,'&amp;');return '<label><input type="checkbox" value="'+e+'"><span>'+e+'</span><em>$'+pr(x).toFixed(pr(x)%1?2:0)+'</em></label>'}).join('');
+$('host').innerHTML='<option value="0">No hosting needed</option>'+[1,2,3,4,5,6,7].map(n=>'<option value="'+n+'">'+n+' month'+(n>1?'s':'')+'</option>').join('')+'<option value="10">10+ months</option>';
+function newId(){TID='#'+Array.from(crypto.getRandomValues(new Uint8Array(4))).map(b=>'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'[b%32]).join('');$('tid').textContent=TID;$('tid2').textContent=TID.slice(1)+' IITZROB'}
+function calc(){const ty=typ();$('sth').textContent=ty==='Support'?'TICKET SUMMARY':'YOUR ESTIMATE';$('stl').textContent=ty==='Support'?'STATUS':ty==='Website'?'PRICE':'TOTAL';$('snote').textContent=ty==='Support'?'I fix bugs in what I made for you. New features or changes may cost extra.':'Estimate only. I will confirm the final price with you.';const bot=typ()==='Discord Bot',pk=document.querySelector('input[name=pack]:checked').value,P=PK[pk],mo=+$('host').value;
+document.querySelectorAll('#feats input').forEach(cb=>{const inc=P.inc.includes(cb.value);if(inc){cb.checked=true;cb.disabled=true}else{if(cb.disabled)cb.checked=false;cb.disabled=false}cb.parentNode.classList.toggle('inc',inc)});
+$('pkinfo').textContent=pk==='None'?'Each feature is priced separately.':pk+' includes: '+P.inc.join(', ')+(pk==='Premium'?', priority support':'')+'.';
+const L=[];let t=0;if(P.p){L.push([pk+' pack',P.p]);t+=P.p}
+const add=[...document.querySelectorAll('#feats input:checked:not(:disabled)')].map(i=>i.value);
+add.forEach(n=>{L.push([n,pr(n)]);t+=pr(n)});
+if(mo){L.push(['Hosting x '+mo+(mo>=10?'+':'')+' month'+(mo>1?'s':''),mo*HOST]);t+=mo*HOST}
+Q={pk:pk,add:add,mo:mo,t:t};const r=$('rc');r.textContent='';
+if(!bot){if(ty==='Support'){[['Category',$('cat').value],['Priority',$('pri').value]].forEach(l=>{const d=document.createElement('div'),a=document.createElement('span'),b=document.createElement('b');d.className='ln';a.textContent=l[0];b.textContent=l[1];d.append(a,b);r.append(d)});$('tot').textContent='OPEN'}else{r.innerHTML='<p class="note">Website quote: I will price it after I read your ticket.</p>';$('tot').textContent='QUOTE'}return}
+if(!L.length){r.innerHTML='<p class="note">Pick a pack or add-ons to see your price.</p>'}
+L.forEach(l=>{const d=document.createElement('div'),a=document.createElement('span'),b=document.createElement('b');d.className='ln';a.textContent=l[0];b.textContent=mny(l[1]);d.append(a,b);r.append(d)});
+$('tot').textContent=mny(t)+' AUD'}
+f.addEventListener('change',calc);f.addEventListener('input',calc);newId();
 const typ=()=>document.querySelector('input[name=type]:checked').value;
-function sync(){const b=typ()==='Discord Bot';$('botq').hidden=!b;$('webq').hidden=b}
+function sync(){const t=typ(),s=t==='Support';$('botq').hidden=t!=='Discord Bot';$('webq').hidden=t!=='Website';$('supq').hidden=!s;$('supb').hidden=!s;$('buy').hidden=s;
+$('thl').textContent=s?'SUPPORT TICKET':'PURCHASE TICKET';
+document.querySelector('label[for=desc]').textContent=s?'Describe the problem or what you need help with':'What do you want made?';
+document.querySelector('label[for=proj]').textContent=s?'Which bot, site or server is this about?':'Project or server name (optional)';
+$('desc').placeholder=s?'What happened? What did you expect to happen?':'Tell me what it should do or look like';calc()}
 document.querySelectorAll('input[name=type]').forEach(r=>r.onchange=sync);sync();
 const c=(v,n)=>String(v||'').trim().slice(0,n)||'Not given';
 const CLIENT_ID='1554821788301795469',REDIR='https://iitzrob.xyz/tickets.html';
@@ -80,18 +132,19 @@ return''}
 f.onsubmit=async e=>{e.preventDefault();if($('hp').value)return;
 if(HOOK.indexOf('discord.com/api/webhooks/')<0){m.textContent='Tickets are not set up yet. Please message me on TikTok or Discord @iitzrob.';return}
 const g=gate();if(g){m.textContent=g;return}
-const bot=typ()==='Discord Bot';
-const fl=[{name:'Contact',value:c($('plat').value+': '+$('user').value,200),inline:true},{name:'Project',value:c($('proj').value,200),inline:true},{name:'Budget',value:c($('budget').value,50),inline:true},{name:'Deadline',value:c($('when').value,50),inline:true}];
-if(bot)fl.push({name:'Features',value:c([...document.querySelectorAll('#feats input:checked')].map(i=>i.value).join(', '),1000)});
+const bot=typ()==='Discord Bot',sup=typ()==='Support';
+const fl=[{name:'Contact',value:c($('plat').value+': '+$('user').value,200),inline:true},{name:sup?'About':'Project',value:c($('proj').value,200),inline:true}];
+if(sup)fl.push({name:'Category',value:c($('cat').value,60),inline:true},{name:'Priority',value:c($('pri').value,30),inline:true},{name:'Related Ticket',value:c($('rel').value,30),inline:true},{name:'Link',value:c($('lnk').value,300)});else fl.push({name:'Budget',value:c($('budget').value,50),inline:true},{name:'Deadline',value:c($('when').value,50),inline:true});
+if(sup){}else if(bot){fl.push({name:'Pack',value:Q.pk==='None'?'Custom (no pack)':Q.pk+' ('+mny(PK[Q.pk].p)+')',inline:true},{name:'Hosting',value:Q.mo?Q.mo+(Q.mo>=10?'+':'')+' month(s)':'None',inline:true},{name:'Estimated Total',value:'**'+mny(Q.t)+' AUD**',inline:true},{name:'Add-ons',value:c(Q.add.map(n=>n+' ('+mny(pr(n))+')').join('\n'),1000)})}
 else fl.push({name:'Website details',value:c('Pages: '+$('pages').value+'\nStyle: '+$('style').value+'\nDomain: '+$('dom').value,1000)});
 fl.push({name:'Notes',value:c($('notes').value,1000)});
-const emb={title:'New '+typ()+' ticket',description:c($('desc').value,1800),color:0x5fb8cc,fields:fl,footer:{text:'iitzrob.xyz'},timestamp:new Date().toISOString()};
+const emb={title:'New '+(sup?'Support':typ()+' Purchase')+' ticket '+TID,description:c($('desc').value,1800),color:sup?0xf5b94f:0x5fb8cc,fields:fl,footer:{text:'iitzrob.xyz | '+TID},timestamp:new Date().toISOString()};
 if(U){emb.author={name:U.name+' (@'+U.un+')',icon_url:U.av};emb.thumbnail={url:U.av};if(U.color)emb.color=U.color;fl.unshift({name:'Discord Account',value:'<@'+U.id+'>\nID: '+U.id,inline:true},{name:'Account Created',value:'<t:'+U.created+':D> (<t:'+U.created+':R>)',inline:true})}
 $('go').disabled=true;m.textContent='Sending...';
 try{const r=await fetch(HOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:'Website Tickets',allowed_mentions:{parse:[]},embeds:[emb]})});
 if(!r.ok)throw 0;
 {const s=rl();s.last=Date.now();s.n=0;sv(s)}
-f.reset();sync();if(U){$('plat').value='Discord';$('user').value='@'+U.un}m.textContent='Ticket sent! I will contact you on the username you gave.'}
+f.reset();newId();sync();if(U){$('plat').value='Discord';$('user').value='@'+U.un}m.textContent='Ticket sent! I will contact you on the username you gave.'}
 catch(x){m.textContent='Something went wrong. Please message me on TikTok or Discord @iitzrob.'}
 $('go').disabled=false};
 </script></body></html>
