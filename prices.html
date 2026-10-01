@@ -1,1 +1,168 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Prices | iitzrob</title><meta name="description" content="Custom Discord bots and clean websites for your community. See reviews, prices and open a ticket."><meta name="theme-color" content="#5fb8cc"><meta property="og:type" content="website"><meta property="og:site_name" content="iitzrob"><meta property="og:title" content="Prices | iitzrob"><meta property="og:description" content="Custom Discord bots and clean websites for your community. See reviews, prices and open a ticket."><meta property="og:url" content="https://iitzrob.xyz/prices.html"><meta property="og:image" content="https://iitzrob.xyz/pfp.png"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Prices | iitzrob"><meta name="twitter:description" content="Custom Discord bots and clean websites for your community. See reviews, prices and open a ticket."><meta name="twitter:image" content="https://iitzrob.xyz/pfp.png"><link rel="icon" href="star.png"><link rel="stylesheet" href="style.css"></head><body><nav><img src="star.png" alt="iitzrob logo"><a href="index.html">About</a><a href="reviews.html">Reviews</a><a href="prices.html" class=on>Prices</a><a href="tickets.html">Tickets</a><a href="tos.html">TOS</a><a href="privacy.html">Privacy</a></nav><main><h1>Prices</h1><p class="sub">Everything is in AUD</p><p>Most features are just $1 each. Pick what you need or grab a pack.</p><h2>Features</h2><div class="grid"><div class="card"><span class="price">$1</span><h3>Moderation</h3><p>Ban, kick, mute, warn and more.</p></div><div class="card"><span class="price">$1</span><h3>Welcome &amp; Leave Messages</h3><p>Custom messages when members join or leave.</p></div><div class="card"><span class="price">$1</span><h3>Logging</h3><p>Track messages, joins, leaves and mod actions.</p></div><div class="card"><span class="price">$1</span><h3>Auto Roles</h3><p>Roles given automatically on join.</p></div><div class="card"><span class="price">$1</span><h3>Basic Tickets</h3><p>Simple support ticket system.</p></div><div class="card"><span class="price">$1</span><h3>Applications</h3><p>Staff and role application forms.</p></div><div class="card"><span class="price">$1</span><h3>Giveaways</h3><p>Start, end and reroll giveaways with timers.</p></div><div class="card"><span class="price">$1</span><h3>Reaction Roles</h3><p>Members pick roles by clicking buttons or reactions.</p></div><div class="card"><span class="price">$1</span><h3>Leveling</h3><p>XP, levels, rank cards and role rewards.</p></div><div class="card"><span class="price">$1</span><h3>Custom Commands</h3><p>Your own commands with your own replies.</p></div><div class="card"><span class="price">$1</span><h3>Suggestions</h3><p>A channel where members suggest and vote on ideas.</p></div><div class="card"><span class="price">$1</span><h3>Polls</h3><p>Quick polls with live results.</p></div><div class="card"><span class="price">$1</span><h3>Verification</h3><p>Button or captcha verify to keep raiders out.</p></div><div class="card"><span class="price">$1</span><h3>Anti-Spam &amp; Anti-Link</h3><p>Auto-delete spam, invites and bad links.</p></div><div class="card"><span class="price">$1</span><h3>Announcements</h3><p>Send clean embed announcements and reminders.</p></div><div class="card"><span class="price">$1</span><h3>Fun Commands</h3><p>Memes, 8ball, games and more for your members.</p></div><div class="card"><span class="price">$2.50</span><h3>Advanced Tickets</h3><p>Categories, transcripts, staff roles and panels.</p></div></div><h2>Packs</h2><div class="grid"><div class="card pack"><h3>Basic</h3><div class="big">$5</div><ul><li>Tickets</li><li>Welcome messages</li><li>Applications</li></ul></div><div class="card pack"><h3>Standard</h3><div class="big">$8</div><ul><li>Everything in Basic</li><li>Moderation</li><li>Logging</li><li>Auto Roles</li></ul></div><div class="card pack"><h3>Premium</h3><div class="big">$12</div><ul><li>Everything in Standard</li><li>Advanced Tickets</li><li>Leave messages</li><li>Priority support</li></ul></div></div><h2>Hosting</h2><div class="card host"><h3>Bot Hosting</h3><div class="big" style="font-size:2rem;font-weight:700;color:#fff">$7 AUD / month</div><p>Keeps your bot online 24/7.</p></div></main><footer>&copy; 2026 iitzrob &middot; <a href="tos.html">Terms of Service</a> &middot; <a href="privacy.html">Privacy Policy</a></footer><script src="rain.js"></script></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tickets | iitzrob</title><meta name="description" content="Custom Discord bots and clean websites for your community. See reviews, prices and open a ticket."><meta name="theme-color" content="#5fb8cc"><meta property="og:type" content="website"><meta property="og:site_name" content="iitzrob"><meta property="og:title" content="Tickets | iitzrob"><meta property="og:description" content="Custom Discord bots and clean websites for your community. See reviews, prices and open a ticket."><meta property="og:url" content="https://iitzrob.xyz/tickets.html"><meta property="og:image" content="https://iitzrob.xyz/pfp.png"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Tickets | iitzrob"><meta name="twitter:description" content="Custom Discord bots and clean websites for your community. See reviews, prices and open a ticket."><meta name="twitter:image" content="https://iitzrob.xyz/pfp.png"><link rel="icon" href="star.png"><link rel="stylesheet" href="style.css"><style>
+.tk{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:18px 0}
+.opt{position:relative;display:block;cursor:pointer}.opt input{position:absolute;opacity:0}
+.opt .card{display:block;height:100%;transition:.2s}form a{color:var(--t)}.opt input:checked+.card{border-color:var(--t);box-shadow:0 0 24px rgba(95,184,204,.45)}
+.opt input:focus-visible+.card{outline:2px solid var(--t)}
+form label{display:block;margin:16px 0 6px;font-weight:600;color:#fff}
+form input,form select,form textarea{width:100%;background:#07131a;color:#fff;border:1px solid var(--b);border-radius:10px;padding:10px 12px;font:inherit}
+form input:focus,form select:focus,form textarea:focus{outline:none;border-color:var(--t);box-shadow:0 0 12px rgba(95,184,204,.4)}
+.row{display:grid;grid-template-columns:140px 1fr;gap:10px}
+.checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:4px 12px}
+.checks label{font-weight:400;margin:0;color:#c5d8df;display:flex;gap:8px;align-items:center}.checks input,.agree input{width:auto}
+.agree{display:flex;gap:8px;align-items:center;font-weight:400}.hp{position:absolute;left:-9999px}
+#go{margin-top:18px;cursor:pointer;font:inherit;font-weight:700}#go:disabled{opacity:.5}#msg{margin:12px 0 0;color:var(--t)}
+#acct{margin:0 0 16px}#acct h3{color:#fff;margin-bottom:6px}#am{margin:8px 0 0;color:var(--t)}
+.dc{background:#5865F2;border-color:#8b95ff;cursor:pointer;font:inherit;font-weight:700}.dc:hover{background:#6d78ff}
+.me{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.me img{width:56px;height:56px;border-radius:50%;border:3px solid var(--t);box-shadow:0 0 18px rgba(95,184,204,.6)}
+.me div{flex:1;min-width:140px}.me b{color:#fff;font-size:1.1rem}.me span{color:var(--m)}.me .btn{margin:0;cursor:pointer;font:inherit}
+.tw{margin-top:6px;filter:drop-shadow(0 0 16px rgba(95,184,204,.4))}
+.ticket{--x:calc(100% - 310px);display:grid;grid-template-columns:1fr 310px;border-radius:18px;overflow:hidden;background:linear-gradient(160deg,#0d2230,#07131b 60%);-webkit-mask:radial-gradient(circle 14px at var(--x) 0,#0000 97%,#000),radial-gradient(circle 14px at var(--x) 100%,#0000 97%,#000);-webkit-mask-composite:source-in;mask:radial-gradient(circle 14px at var(--x) 0,#0000 97%,#000),radial-gradient(circle 14px at var(--x) 100%,#0000 97%,#000);mask-composite:intersect}
+.ticket form{padding:0 24px 24px}.th{display:flex;justify-content:space-between;align-items:center;margin:0 -24px 4px;padding:14px 24px;background:linear-gradient(90deg,#1c5568,#0d2a38);letter-spacing:.18em;font-size:.85rem;color:#fff}
+.th span{background:rgba(0,0,0,.35);border:1px solid var(--t);border-radius:20px;padding:2px 12px;letter-spacing:.1em;text-shadow:0 0 8px var(--t)}
+.stub{padding:22px 20px;border-left:2px dashed rgba(143,224,240,.4);background:rgba(3,10,14,.5);display:flex;flex-direction:column}
+.stub h3{letter-spacing:.18em;font-size:.85rem;color:var(--t);margin-bottom:10px}
+.ln{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px dotted rgba(143,224,240,.25);font-size:.92rem;color:#c5d8df}.ln b{color:#fff}
+.tl{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px;color:var(--m);letter-spacing:.1em}.tl b{font-size:1.5rem;color:#fff;text-shadow:0 0 14px var(--t);letter-spacing:0}
+.stub .note{font-size:.8rem;color:var(--m);margin:10px 0 0}.bc{height:46px;margin-top:auto;background:repeating-linear-gradient(90deg,#d9f6ff 0 2px,transparent 2px 5px,#d9f6ff 5px 6px,transparent 6px 8px,#d9f6ff 8px 11px,transparent 11px 13px);opacity:.85;border-radius:2px}
+#tid2{margin-top:6px;text-align:center;letter-spacing:.3em;font-size:.75rem;color:var(--m)}.stub .bc{margin-top:22px}
+.packs{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px}
+.pk{position:relative;margin:0!important;cursor:pointer}.pk input{position:absolute;opacity:0;width:auto}
+.pk span{display:block;padding:10px 6px;border:1px solid var(--b);border-radius:10px;text-align:center;background:#07131a}.pk b{display:block;color:#fff}.pk i{color:var(--t);font-style:normal}
+.pk input:checked+span{border-color:var(--t);background:rgba(95,184,204,.14);box-shadow:0 0 14px rgba(95,184,204,.5)}.pk input:focus-visible+span{outline:2px solid var(--t)}
+#pkinfo{font-size:.85rem;color:var(--m);margin:8px 0 0}.checks em{margin-left:auto;font-style:normal;color:var(--t)}
+.checks label.inc{opacity:.75}.checks label.inc em{font-size:0}.checks label.inc em::after{content:"Included";font-size:.8rem}
+@media(max-width:760px){.ticket{grid-template-columns:1fr;-webkit-mask:none;mask:none}.stub{border-left:0;border-top:2px dashed rgba(143,224,240,.4)}}
+.lbl{letter-spacing:.18em;font-size:.8rem;color:var(--t);margin:6px 0 -4px;text-transform:uppercase}
+.mt{margin-top:34px}.mt h2{margin-top:0}.tkc{display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:center;margin-bottom:12px}
+.tkc b{color:#fff;letter-spacing:.12em}.tkc small{color:var(--m);display:block}.st{border-radius:20px;padding:3px 14px;font-size:.8rem;font-weight:700;letter-spacing:.08em;border:1px solid;white-space:nowrap}
+.st.rv{color:#f5b94f;border-color:#f5b94f;background:rgba(245,185,79,.1)}.st.rv::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#f5b94f;margin-right:8px;animation:pl 1.2s infinite}
+.st.dn{color:#6fe39a;border-color:#6fe39a;background:rgba(111,227,154,.1)}.pb{grid-column:1/-1;height:6px;border-radius:6px;background:#0b1a22;border:1px solid var(--b);overflow:hidden}.pb i{display:block;height:100%;background:linear-gradient(90deg,#2b7f93,#d8f6ff)}
+@keyframes pl{50%{opacity:.25}}
+</style></head><body><nav><img src="star.png" alt="iitzrob logo"><a href="index.html">About</a><a href="reviews.html">Reviews</a><a href="prices.html">Prices</a><a href="tickets.html" class=on>Tickets</a><a href="tos.html">TOS</a><a href="privacy.html">Privacy</a></nav><main><h1>Tickets</h1><p class="sub">Tell me what you want made</p><p>Pick a ticket type, answer a few questions and I'll get back to you on TikTok or Discord.</p>
+<div class="tk"><label class="opt"><input type="radio" name="type" value="Support"><span class="card"><h3>Support Ticket</h3><p>Need help with something I made? Report a problem, ask a question or request a change.</p></span></label></div>
+<p class="lbl">Purchase Tickets</p>
+<div class="tk">
+<label class="opt"><input type="radio" name="type" value="Discord Bot" checked><span class="card"><h3>Bot Ticket</h3><p>A Discord bot for your server.</p></span></label>
+<label class="opt"><input type="radio" name="type" value="Website"><span class="card"><h3>Website Ticket</h3><p>A multi-page website.</p></span></label>
+<div class="card closed"><h3>Server Ticket</h3><p>Minecraft server development.</p></div></div>
+<div class="card" id="acct"></div>
+<div class="tw"><div class="ticket"><form id="f" autocomplete="off"><div class="th"><b id="thl">PURCHASE TICKET</b><span id="tid">#----</span></div>
+<label for="plat">How should I contact you?</label>
+<div class="row"><select id="plat"><option>TikTok</option><option>Discord</option></select><input id="user" required maxlength="60" placeholder="Your username, like @name"></div>
+<div id="supq" hidden><label for="cat">Category</label><select id="cat"><option>Bot problem or bug</option><option>Website problem or bug</option><option>Bot offline or hosting</option><option>Payment or billing</option><option>Change or new feature</option><option>Question</option><option>Other</option></select>
+<label for="pri">How urgent is it?</label><select id="pri"><option>Low</option><option selected>Normal</option><option>Urgent</option></select></div>
+<label for="proj">Project or server name (optional)</label><input id="proj" maxlength="80">
+<label for="desc">What do you want made?</label><textarea id="desc" required minlength="15" maxlength="1500" rows="5" placeholder="Tell me what it should do or look like"></textarea>
+<div id="supb" hidden><label for="rel">Related ticket number (optional)</label><input id="rel" maxlength="20" placeholder="#A1B2">
+<label for="lnk">Link to a screenshot or video (optional)</label><input id="lnk" maxlength="300" placeholder="https://..."></div>
+<div id="botq"><label>Choose a pack or build your own</label><div class="packs">
+<label class="pk"><input type="radio" name="pack" value="None" checked><span><b>Build your own</b><i>Pick below</i></span></label>
+<label class="pk"><input type="radio" name="pack" value="Basic"><span><b>Basic</b><i>$5</i></span></label>
+<label class="pk"><input type="radio" name="pack" value="Standard"><span><b>Standard</b><i>$8</i></span></label>
+<label class="pk"><input type="radio" name="pack" value="Premium"><span><b>Premium</b><i>$12</i></span></label></div><p id="pkinfo"></p>
+<label>Add-ons and features</label><div class="checks" id="feats"></div>
+<label for="host">How long do you want bot hosting? ($8.50 AUD / month)</label><select id="host"></select></div>
+<div id="webq" hidden><label for="pages">How many pages?</label><select id="pages"><option>1 to 3</option><option>4 to 6</option><option>7 or more</option></select>
+<label for="style">Style or theme you like</label><input id="style" maxlength="120" placeholder="Dark, colourful, like a site you love...">
+<label for="dom">Do you already have a domain?</label><select id="dom"><option>Yes</option><option>No</option></select></div>
+<div id="buy"><label for="budget">Budget (AUD)</label><select id="budget"><option>Not sure</option><option>Under $5</option><option>$5 to $10</option><option>$10 to $20</option><option>$20+</option></select>
+<label for="when">When do you need it?</label><select id="when"><option>No rush</option><option>Within 2 weeks</option><option>Within 1 week</option><option>As soon as possible</option></select>
+</div><label for="notes">Anything else? (optional)</label><textarea id="notes" maxlength="800" rows="3"></textarea>
+<input class="hp" id="hp" tabindex="-1" aria-hidden="true">
+<label class="agree"><input type="checkbox" id="tos" required> I agree to the <a href="tos.html" target="_blank">Terms of Service</a></label>
+<button class="btn" id="go" type="submit">Send Ticket</button><p id="msg" role="status"></p></form><aside class="stub"><h3 id="sth">YOUR ESTIMATE</h3><div id="rc"></div><div class="tl"><span id="stl">TOTAL</span><b id="tot">$0.00 AUD</b></div><p class="note" id="snote"></p><div class="bc"></div><div id="tid2"></div></aside></div></div><section class="mt" id="mine" hidden><h2>Your Tickets</h2><div id="tkl"></div><p class="note" style="color:var(--m);font-size:.85rem">Tickets are saved in this browser only.</p></section></main><footer>&copy; 2026 iitzrob &middot; <a href="tos.html">Terms of Service</a> &middot; <a href="privacy.html">Privacy Policy</a></footer><script src="rain.js"></script><script>
+const HOOK='https://discord.com/api/webhooks/1554817260860739704/rXestP-wgl4UITUReoZQxvD4bDccmaMjKzYrb6pAROuGBJtJw--_681GmDjvdzE0tdvF';
+const feats=['Moderation','Welcome & Leave Messages','Logging','Auto Roles','Basic Tickets','Advanced Tickets','Applications','Giveaways','Reaction Roles','Leveling','Custom Commands','Suggestions','Polls','Verification','Anti-Spam & Anti-Link','Announcements','Fun Commands'];
+const PK={None:{p:0,inc:[]},Basic:{p:5,inc:['Basic Tickets','Welcome & Leave Messages','Applications']}};
+PK.Standard={p:8,inc:PK.Basic.inc.concat(['Moderation','Logging','Auto Roles'])};PK.Premium={p:12,inc:PK.Standard.inc.concat(['Advanced Tickets'])};
+const HOST=8.5,pr=n=>n==='Advanced Tickets'?2.5:1,mny=n=>'$'+n.toFixed(2);let Q={},TID='';
+const $=id=>document.getElementById(id),f=$('f'),m=$('msg');
+$('feats').innerHTML=feats.map(x=>{const e=x.replace(/&/g,'&amp;');return '<label><input type="checkbox" value="'+e+'"><span>'+e+'</span><em>$'+pr(x).toFixed(pr(x)%1?2:0)+'</em></label>'}).join('');
+$('host').innerHTML='<option value="0">No hosting needed</option>'+[1,2,3,4,5,6,7].map(n=>'<option value="'+n+'">'+n+' month'+(n>1?'s':'')+'</option>').join('')+'<option value="10">10+ months</option>';
+function newId(){TID='#'+Array.from(crypto.getRandomValues(new Uint8Array(4))).map(b=>'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'[b%32]).join('');$('tid').textContent=TID;$('tid2').textContent=TID.slice(1)+' IITZROB'}
+function calc(){const ty=typ();$('sth').textContent=ty==='Support'?'TICKET SUMMARY':'YOUR ESTIMATE';$('stl').textContent=ty==='Support'?'STATUS':ty==='Website'?'PRICE':'TOTAL';$('snote').textContent=ty==='Support'?'I fix bugs in what I made for you. New features or changes may cost extra.':'Estimate only. I will confirm the final price with you.';const bot=typ()==='Discord Bot',pk=document.querySelector('input[name=pack]:checked').value,P=PK[pk],mo=+$('host').value;
+document.querySelectorAll('#feats input').forEach(cb=>{const inc=P.inc.includes(cb.value);if(inc){cb.checked=true;cb.disabled=true}else{if(cb.disabled)cb.checked=false;cb.disabled=false}cb.parentNode.classList.toggle('inc',inc)});
+$('pkinfo').textContent=pk==='None'?'Each feature is priced separately.':pk+' includes: '+P.inc.join(', ')+(pk==='Premium'?', priority support':'')+'.';
+const L=[];let t=0;if(P.p){L.push([pk+' pack',P.p]);t+=P.p}
+const add=[...document.querySelectorAll('#feats input:checked:not(:disabled)')].map(i=>i.value);
+add.forEach(n=>{L.push([n,pr(n)]);t+=pr(n)});
+if(mo){L.push(['Hosting x '+mo+(mo>=10?'+':'')+' month'+(mo>1?'s':''),mo*HOST]);t+=mo*HOST}
+Q={pk:pk,add:add,mo:mo,t:t};const r=$('rc');r.textContent='';
+if(!bot){if(ty==='Support'){[['Category',$('cat').value],['Priority',$('pri').value]].forEach(l=>{const d=document.createElement('div'),a=document.createElement('span'),b=document.createElement('b');d.className='ln';a.textContent=l[0];b.textContent=l[1];d.append(a,b);r.append(d)});$('tot').textContent='OPEN'}else{r.innerHTML='<p class="note">Website quote: I will price it after I read your ticket.</p>';$('tot').textContent='QUOTE'}return}
+if(!L.length){r.innerHTML='<p class="note">Pick a pack or add-ons to see your price.</p>'}
+L.forEach(l=>{const d=document.createElement('div'),a=document.createElement('span'),b=document.createElement('b');d.className='ln';a.textContent=l[0];b.textContent=mny(l[1]);d.append(a,b);r.append(d)});
+$('tot').textContent=mny(t)+' AUD'}
+f.addEventListener('change',calc);f.addEventListener('input',calc);newId();
+const typ=()=>document.querySelector('input[name=type]:checked').value;
+function sync(){const t=typ(),s=t==='Support';$('botq').hidden=t!=='Discord Bot';$('webq').hidden=t!=='Website';$('supq').hidden=!s;$('supb').hidden=!s;$('buy').hidden=s;
+$('thl').textContent=s?'SUPPORT TICKET':'PURCHASE TICKET';
+document.querySelector('label[for=desc]').textContent=s?'Describe the problem or what you need help with':'What do you want made?';
+document.querySelector('label[for=proj]').textContent=s?'Which bot, site or server is this about?':'Project or server name (optional)';
+$('desc').placeholder=s?'What happened? What did you expect to happen?':'Tell me what it should do or look like';calc()}
+document.querySelectorAll('input[name=type]').forEach(r=>r.onchange=sync);sync();
+const c=(v,n)=>String(v||'').trim().slice(0,n)||'Not given';
+const CLIENT_ID='1554821788301795469',REDIR='https://iitzrob.xyz/tickets.html';
+let U=null;
+const ss={g:k=>{try{return sessionStorage.getItem(k)}catch(x){return null}},s:(k,v)=>{try{sessionStorage.setItem(k,v)}catch(x){}},d:k=>{try{sessionStorage.removeItem(k)}catch(x){}}};
+function draw(msg){const a=$('acct');
+if(U){a.innerHTML='<div class="me"><img alt="" width="56" height="56"><div><b></b><br><span></span></div><button type="button" class="btn" id="out">Log out</button></div>';
+a.querySelector('img').src=U.av;a.querySelector('b').textContent=U.name;a.querySelector('span').textContent='@'+U.un;
+$('out').onclick=()=>{ss.d('dt');ss.d('de');U=null;$('go').textContent='Send Ticket';draw()}}
+else{a.innerHTML='<h3>Log in with Discord</h3><p>Optional. Log in and your ticket shows your Discord profile. TikTok users can skip this.</p><button type="button" class="btn dc" id="in">Log in with Discord</button><p id="am"></p>';
+$('in').onclick=login;if(msg)$('am').textContent=msg}}
+function login(){if(CLIENT_ID.indexOf('PASTE')===0){$('am').textContent='Discord login is not set up yet.';return}
+const st=Array.from(crypto.getRandomValues(new Uint32Array(4))).join('-');ss.s('st',st);
+if(ss.g('st')!==st){$('am').textContent='Your browser is blocking storage, so login cannot work here.';return}
+location.href='https://discord.com/oauth2/authorize?client_id='+CLIENT_ID+'&response_type=token&scope=identify&prompt=none&redirect_uri='+encodeURIComponent(REDIR)+'&state='+st}
+async function getUser(t){const r=await fetch('https://discord.com/api/users/@me',{headers:{Authorization:'Bearer '+t}});if(!r.ok)throw 0;const u=await r.json(),n=BigInt(u.id);
+const av=u.avatar?'https://cdn.discordapp.com/avatars/'+u.id+'/'+u.avatar+'.png?size=128':'https://cdn.discordapp.com/embed/avatars/'+Number((n>>22n)%6n)+'.png';
+return{id:u.id,un:u.username,name:u.global_name||u.username,av:av,color:u.accent_color||0,created:Math.floor(Number((n>>22n)+1420070400000n)/1000)}}
+(async()=>{let msg='';const h=new URLSearchParams(location.hash.slice(1)),q=new URLSearchParams(location.search);
+if(h.get('access_token')){if(h.get('state')&&h.get('state')===ss.g('st')){ss.s('dt',h.get('access_token'));ss.s('de',Date.now()+(+h.get('expires_in')||0)*1000)}else msg='Login failed. Please try again from iitzrob.xyz.';history.replaceState(null,'',location.pathname)}
+else if(h.get('error')||q.get('error')){msg='Login was cancelled.';history.replaceState(null,'',location.pathname)}
+ss.d('st');const t=ss.g('dt');
+if(t&&+ss.g('de')>Date.now()){try{U=await getUser(t);$('plat').value='Discord';if(!$('user').value)$('user').value='@'+U.un;$('go').textContent='Send Ticket as '+U.name}catch(x){ss.d('dt');ss.d('de');U=null;msg='Login expired. Please log in again.'}}
+draw(msg)})();
+function rl(){try{return JSON.parse(localStorage.getItem('tkS'))||{}}catch(x){return{}}}
+function sv(s){try{localStorage.setItem('tkS',JSON.stringify(s))}catch(x){}}
+function fmt(ms){const m=Math.ceil(ms/60000);if(m>=1440)return Math.ceil(m/1440)+' day(s)';if(m>=60)return Math.ceil(m/60)+' hour(s)';return m+' minute(s)'}
+function gate(){const s=rl(),now=Date.now();
+if(s.strikes&&now>(s.lk||0)+6048e5)s.strikes=0;
+if(now<(s.lk||0))return'You are locked out for spamming. Try again in '+fmt(s.lk-now)+'.';
+const cd=(s.last||0)+3e5;
+if(now<cd){s.n=(s.n||0)+1;
+if(s.n>=5){s.n=0;s.strikes=(s.strikes||0)+1;s.lk=now+(s.strikes===1?72e5:2592e5);sv(s);return'Too many attempts. You are locked out for '+(s.strikes===1?'2 hours':'3 days')+'.'}
+sv(s);return'Please wait '+fmt(cd-now)+' before sending another ticket. Attempt '+s.n+' of 5 before a lockout.'}
+return''}
+f.onsubmit=async e=>{e.preventDefault();if($('hp').value)return;
+if(HOOK.indexOf('discord.com/api/webhooks/')<0){m.textContent='Tickets are not set up yet. Please message me on TikTok or Discord @iitzrob.';return}
+const g=gate();if(g){m.textContent=g;return}
+const bot=typ()==='Discord Bot',sup=typ()==='Support';
+const fl=[{name:'Contact',value:c($('plat').value+': '+$('user').value,200),inline:true},{name:sup?'About':'Project',value:c($('proj').value,200),inline:true}];
+if(sup)fl.push({name:'Category',value:c($('cat').value,60),inline:true},{name:'Priority',value:c($('pri').value,30),inline:true},{name:'Related Ticket',value:c($('rel').value,30),inline:true},{name:'Link',value:c($('lnk').value,300)});else fl.push({name:'Budget',value:c($('budget').value,50),inline:true},{name:'Deadline',value:c($('when').value,50),inline:true});
+if(sup){}else if(bot){fl.push({name:'Pack',value:Q.pk==='None'?'Custom (no pack)':Q.pk+' ('+mny(PK[Q.pk].p)+')',inline:true},{name:'Hosting',value:Q.mo?Q.mo+(Q.mo>=10?'+':'')+' month(s)':'None',inline:true},{name:'Estimated Total',value:'**'+mny(Q.t)+' AUD**',inline:true},{name:'Add-ons',value:c(Q.add.map(n=>n+' ('+mny(pr(n))+')').join('\n'),1000)})}
+else fl.push({name:'Website details',value:c('Pages: '+$('pages').value+'\nStyle: '+$('style').value+'\nDomain: '+$('dom').value,1000)});
+fl.push({name:'Notes',value:c($('notes').value,1000)});
+const emb={title:'New '+(sup?'Support':typ()+' Purchase')+' ticket '+TID,description:c($('desc').value,1800),color:sup?0xf5b94f:0x5fb8cc,fields:fl,footer:{text:'iitzrob.xyz | '+TID},timestamp:new Date().toISOString()};
+if(U){emb.author={name:U.name+' (@'+U.un+')',icon_url:U.av};emb.thumbnail={url:U.av};if(U.color)emb.color=U.color;fl.unshift({name:'Discord Account',value:'<@'+U.id+'>\nID: '+U.id,inline:true},{name:'Account Created',value:'<t:'+U.created+':D> (<t:'+U.created+':R>)',inline:true})}
+$('go').disabled=true;m.textContent='Sending...';
+try{const r=await fetch(HOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:'Website Tickets',allowed_mentions:{parse:[]},embeds:[emb]})});
+if(!r.ok)throw 0;
+{const s=rl();s.last=Date.now();s.n=0;sv(s)}
+addT({id:TID,type:sup?"Support":typ(),at:Date.now(),due:Date.now()+(sup?REVIEW_HOURS.Support:REVIEW_HOURS.Purchase)*36e5});showT();f.reset();newId();sync();if(U){$('plat').value='Discord';$('user').value='@'+U.un}m.textContent='Ticket sent! I will contact you on the username you gave.'}
+catch(x){m.textContent='Something went wrong. Please message me on TikTok or Discord @iitzrob.'}
+$('go').disabled=false};
+
+const REVIEW_HOURS={Support:12,Purchase:24};
+function tl(){try{return JSON.parse(localStorage.getItem('tkL'))||[]}catch(x){return[]}}
+function addT(o){const l=tl();l.unshift(o);try{localStorage.setItem('tkL',JSON.stringify(l.slice(0,10)))}catch(x){}}
+function left(ms){const m=Math.ceil(ms/60000);return m>=60?Math.floor(m/60)+'h '+(m%60)+'m':m+'m'}
+function showT(){const l=tl(),b=$('tkl'),now=Date.now();$('mine').hidden=!l.length;b.textContent='';
+l.forEach(k=>{const tot=k.due-k.at,done=now>=k.due,d=document.createElement('div');d.className='card tkc';
+const a=document.createElement('div'),n=document.createElement('b'),s=document.createElement('small'),p=document.createElement('span');
+n.textContent=k.id;s.textContent=k.type+' ticket \u00b7 sent '+new Date(k.at).toLocaleString()+(done?'':' \u00b7 review in '+left(k.due-now));
+p.className='st '+(done?'dn':'rv');p.textContent=done?'REVIEWED':'BEING REVIEWED';a.append(n,s);d.append(a,p);
+if(!done){const w=document.createElement('div'),i=document.createElement('i');w.className='pb';i.style.width=Math.min(100,(now-k.at)/tot*100)+'%';w.append(i);d.append(w)}
+b.append(d)})}
+showT();setInterval(showT,30000);
+</script></body></html>
